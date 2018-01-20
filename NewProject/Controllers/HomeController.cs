@@ -11,10 +11,17 @@ namespace NewProject.Controllers
     {
         private MapsEntities db = new MapsEntities();
 
-        public ActionResult Index()
+        public ActionResult MapView()
         {
-         var CityAtraction = db.MapsDB;
-            return View(CityAtraction);
+             MapsDB CityAtraction = new MapsDB
+            {
+                 AtractionName= "Muzeum Emigracji", 
+                 Latitude= 54.5331021, 
+                 Longitude= 18.54793821,
+                 City = "Gdynia", 
+            };
+
+            return View("MapsDB",CityAtraction);
         }
 
         public ActionResult About()
