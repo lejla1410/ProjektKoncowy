@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,12 @@ namespace NewProject.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
-            return View();
+            MapsEntities db = new MapsEntities();
+            var CityAtraction = db.MapsDB;
+            return View(CityAtraction);
         }
 
         public ActionResult About()
