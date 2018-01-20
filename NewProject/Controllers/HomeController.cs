@@ -9,11 +9,11 @@ namespace NewProject.Controllers
 {
     public class HomeController : Controller
     {
+        private MapsEntities db = new MapsEntities();
 
         public ActionResult Index()
         {
-            MapsEntities db = new MapsEntities();
-            var CityAtraction = db.MapsDB;
+         var CityAtraction = db.MapsDB;
             return View(CityAtraction);
         }
 

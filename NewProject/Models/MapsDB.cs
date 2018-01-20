@@ -14,6 +14,7 @@ namespace NewProject.Models
     
     public partial class MapsDB
     {
+     
         public int ID { get; set; }
         public string AtractionName { get; set; }
         public float Latitude { get; set; }
