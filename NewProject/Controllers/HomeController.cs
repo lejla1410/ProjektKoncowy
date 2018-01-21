@@ -10,10 +10,12 @@ namespace NewProject.Controllers
 {
     public class HomeController : Controller
     {
-        private MapsEntities db = new MapsEntities();
+        private MapsDbContext db = new MapsDbContext();
 
         public ActionResult MapView()
         {
+            var markeryZbazdy = db.MapsDB.ToList().Where(m => m.City.Equals("Gdynia"));
+
             var markery = new List<MapsDB>
             {
              new MapsDB()

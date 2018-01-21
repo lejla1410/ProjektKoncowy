@@ -162,29 +162,33 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MapsDBsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="JavaScriptConvert.cs" />
-    <Compile Include="Models\MapContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MapContext.Context.tt</DependentUpon>
+    <Compile Include="Migrations\201801211420018_InitialMigration.cs" />
+    <Compile Include="Migrations\201801211420018_InitialMigration.Designer.cs">
+      <DependentUpon>201801211420018_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\MapContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MapContext.tt</DependentUpon>
+    <Compile Include="Migrations\201801211425578_CityTableAdded.cs" />
+    <Compile Include="Migrations\201801211425578_CityTableAdded.Designer.cs">
+      <DependentUpon>201801211425578_CityTableAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\MapContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MapContext.edmx</DependentUpon>
+    <Compile Include="Migrations\201801211429545_RefactorMapsDBMarkers.cs" />
+    <Compile Include="Migrations\201801211429545_RefactorMapsDBMarkers.Designer.cs">
+      <DependentUpon>201801211429545_RefactorMapsDBMarkers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\MapsDB.cs">
-      <DependentUpon>MapContext.tt</DependentUpon>
+    <Compile Include="Migrations\201801211431311_AddCityReference.cs" />
+    <Compile Include="Migrations\201801211431311_AddCityReference.Designer.cs">
+      <DependentUpon>201801211431311_AddCityReference.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\MapsDB.cs" />
+    <Compile Include="Models\MapsDbContext.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,27 +201,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="MapGoogle.html" />
     <Content Include="MapOSM.html" />
-    <Content Include="Models\MapContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MapContext.edmx</DependentUpon>
-      <LastGenOutput>MapContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MapContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MapContext.edmx</DependentUpon>
-      <LastGenOutput>MapContext.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\MapContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MapContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MapContext.edmx.diagram">
-      <DependentUpon>MapContext.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -246,9 +233,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MapViewBroken.cshtml" />
     <Content Include="Views\Home\MapView.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\Cities\Delete.cshtml" />
+    <Content Include="Views\Cities\Details.cshtml" />
+    <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\MapsDBs\Create.cshtml" />
+    <Content Include="Views\MapsDBs\Delete.cshtml" />
+    <Content Include="Views\MapsDBs\Details.cshtml" />
+    <Content Include="Views\MapsDBs\Edit.cshtml" />
+    <Content Include="Views\MapsDBs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -265,6 +262,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801211420018_InitialMigration.resx">
+      <DependentUpon>201801211420018_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211425578_CityTableAdded.resx">
+      <DependentUpon>201801211425578_CityTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211429545_RefactorMapsDBMarkers.resx">
+      <DependentUpon>201801211429545_RefactorMapsDBMarkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211431311_AddCityReference.resx">
+      <DependentUpon>201801211431311_AddCityReference.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
