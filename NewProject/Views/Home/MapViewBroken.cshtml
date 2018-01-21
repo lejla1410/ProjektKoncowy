@@ -1,15 +1,14 @@
-﻿@model NewProject.ViewModel.MapViewModel
+﻿@model NewProject.Models.MapsEntities
 
 @{
     ViewBag.Title = "MapView";
 }
-<h2>@ViewBag.Title</h2>
 
 <div id="map"></div>
 
 <script type="text/javascript">
     var markery = @JavaScriptConvert.SerializeObject(Model.Markery);
-
+  
     function initMap() {
         var place = { lat: 54.452, lng: 18.768 };
         var map = new google.maps.Map(document.getElementById('map'), {

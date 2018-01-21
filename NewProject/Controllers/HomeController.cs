@@ -1,4 +1,5 @@
 ﻿using NewProject.Models;
+using NewProject.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,29 +14,34 @@ namespace NewProject.Controllers
 
         public ActionResult MapView()
         {
-             MapsDB CityAtraction = new MapsDB
+            var markery = new List<MapsDB>
             {
-                 AtractionName= "Muzeum Emigracji", 
-                 Latitude= 54.5331021, 
-                 Longitude= 18.54793821,
-                 City = "Gdynia", 
+             new MapsDB()
+             {
+                 // 8, "Muzeum Emigracji", 54.5331021, 18.54793821,"Gdynia"
+                 AtractionName = "Muzeum Emigracji",
+                 ID=8,
+                 Latitude=54.5331021,
+                 Longitude = 18.54793821,
+                 City = "Gdynia"
+             }
             };
 
-            return View("MapsDB",CityAtraction);
+            return View(new MapViewModel(markery));
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

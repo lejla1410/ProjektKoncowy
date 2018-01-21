@@ -166,6 +166,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="JavaScriptConvert.cs" />
     <Compile Include="Models\MapContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,7 +185,7 @@
     <Compile Include="Models\MapsDB.cs">
       <DependentUpon>MapContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MapViewModel.cs" />
+    <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +244,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\MapViewBroken.cshtml" />
     <Content Include="Views\Home\MapView.cshtml" />
   </ItemGroup>
   <ItemGroup>
