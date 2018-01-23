@@ -7,8 +7,7 @@ namespace NewProject.Models
 
     public partial class MapsDbContext : DbContext
     {
-        public MapsDbContext()
-            : base("name=MapsDbContext")
+        public MapsDbContext(): base("name=MapsDbContext")
         {
         }
 
